@@ -1,0 +1,74 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+    @include('frontend.layouts.head')
+    <body>
+
+		<!-- Preloader -->
+        <div class="preloader">
+            <div class="loader">
+                <div class="loader-outter"></div>
+                <div class="loader-inner"></div>
+
+                <div class="indicator">
+                    <svg width="16px" height="12px">
+                        <polyline id="back" points="1 6 4 6 6 11 10 1 12 6 15 6"></polyline>
+                        <polyline id="front" points="1 6 4 6 6 11 10 1 12 6 15 6"></polyline>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <!-- End Preloader -->
+
+
+
+		<!-- Header Area -->
+		<!doctype html>
+<html class="no-js" lang="zxx">
+    @include('frontend.layouts.head')
+    <body>
+
+		<!-- Preloader -->
+        <div class="preloader">
+            <div class="loader">
+                <div class="loader-outter"></div>
+                <div class="loader-inner"></div>
+
+                <div class="indicator">
+                    <svg width="16px" height="12px">
+                        <polyline id="back" points="1 6 4 6 6 11 10 1 12 6 15 6"></polyline>
+                        <polyline id="front" points="1 6 4 6 6 11 10 1 12 6 15 6"></polyline>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <!-- End Preloader -->
+
+
+
+		<!-- Header Area -->
+		@include('frontend.layouts.header2')
+
+		<!-- End Header Area -->
+
+		@yield('body')
+
+		<!-- Footer Area -->
+		@include('frontend.layouts.footer')
+		<!--/ End Footer Area -->
+
+        @include('frontend.layouts.scripts')
+    </body>
+</html>
+
+
+		<!-- End Header Area -->
+
+		@yield('body')
+
+		<!-- Footer Area -->
+		@include('frontend.layouts.footer')
+		<!--/ End Footer Area -->
+
+        @include('frontend.layouts.scripts')
+    </body>
+</html>
