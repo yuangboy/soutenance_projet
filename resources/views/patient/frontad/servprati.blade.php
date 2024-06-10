@@ -197,7 +197,10 @@
                           <td>{{$praticien->service->libelle}}</td>
                           <td>{{$praticien->personnes->nom}} {{$praticien->personnes->prenom}}</td>
                           <td class="disponibite">
-                            <a href="{{route('afficher.rdv',$praticien->id)}}">Voir la Disponibilté</a>
+                            {{-- <a href="{{route('afficher.rdv',$praticien->id)}}">Voir la Disponibilté</a> --}}
+                            {{-- <a href="patient/{praticien_id}/horaires">Voir la Disponibilté</a> --}}
+                            <a href="{{ route('patient.horaires', $praticien->id) }}">Voir la Disponibilité</a>
+
                           </td>
                         </tr>
                       @endforeach
@@ -232,7 +235,8 @@
                           <td>{{$praticien->service->libelle}}</td>
 
                           <td class="disponibite">
-                            <a href="{{route('afficher.rdv',$praticien->id)}}">Voir la Disponibilté</a>
+                            {{-- <a href="{{route('afficher.rdv',$praticien->id)}}">Voir la Disponibilté</a> --}}
+                            <a href="{{ route('patient.horaires', $praticien->id) }}">Voir la Disponibilité</a>
                           </td>
                         </tr>
                       @endforeach

@@ -17,23 +17,23 @@ class UserTableSeeder extends Seeder
     {
         DB::table('users')->insert([
             [
-            'name' => 'Admin',
-            'email' => 'admin@gmail.com',
+            'name' => 'Albin',
+            'email' => 'albinmpobo@gmail.com',
             'role' => 'admin',
             'password' => Hash::make('password'),
             'status'=>'1'
             ],
 
             [
-            'name' => 'User',
-            'email' => 'user@gmail.com',
+            'name' => 'Yuang',
+            'email' => 'yuangboy8@gmail.com',
             'role' => 'user',
             'password' => Hash::make('password'),
             'status'=>'1'
             ],
             [
-                'name' => 'MPOBO Albin',
-                'email' => 'albinmpobo@gmail.com',
+                'name' => 'Victoire',
+                'email' => 'victoireongatse@gmail.com',
                 'role' => 'praticien',
                 'password' => Hash::make('password'),
                 'status'=>'1',

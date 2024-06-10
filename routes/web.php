@@ -274,7 +274,7 @@ Route::prefix('patient')->group(function () {
 
 Route::get("/rdv", [ProgrammerRdvController::class, 'ProgrammeRdv'])->name('patient.rdvProgramme');
 Route::get("/aa", [ProgrammerRdvController::class, 'AA'])->name('patient.rdv');
-Route::get('praticien/empoi_du_temps/{praticienId}',[ProgrammerRdvController::class,'afficherRdv'])->name('afficher.rdv');
+// Route::get('praticien/empoi_du_temps/{praticienId}',[ProgrammerRdvController::class,'afficherRdv'])->name('afficher.rdv');
 
 // Message success
 

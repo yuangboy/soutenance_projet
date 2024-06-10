@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use App\Models\Horaire;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Events\PraticienHoraire;
+use App\Models\User;
 
 class HoraireController extends Controller
 {
@@ -33,15 +35,24 @@ class HoraireController extends Controller
         ]);
 
         $praticien = Auth::user()->praticien;
+        // dd($praticien);
 
-        Horaire::create([
+
+
+
+        $horaire=Horaire::create([
             'praticien_id' => $praticien->id,
             'start_time' => $request->start_time,
             'end_time' => $request->end_time,
             'is_available' => true,
         ]);
 
+        if(Auth::user() instanceof User){
+            event(new PraticienHoraire($horaire, Auth::user()));
+        }
+
         return redirect()->route('horaires.index')->with('status', 'Horaire créé avec succès.');
+
     }
 
     public function destroy($id)
