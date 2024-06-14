@@ -4,12 +4,11 @@
 
     </x-app-layout> --}}
 
-
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>HGD</title>
+    <title>Forms / Layouts - NiceAdmin Bootstrap Template</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
     {{-- {{asset('templates/')}} --}}
@@ -127,32 +126,20 @@
                 <!-- Floating Labels Form -->
                 <form class="row g-3" action="{{ route('registre.patient') }}" method="POST">
                     @csrf
-                    {{-- <div>
-                        <label for="">Matricule</label>
-                    <input type="text" name="matricule">
-                    </div> --}}
-                    <br>
                     <div class="col-md-12">
-                        <div class="form-floating select">
-                            <input name="image" type="text" class="form-control" id="image"
-                                placeholder="Votre image">
-                            <label for="text">Image</label>
-                        </div>
-                        @if ($errors->has('image'))
-                        <li>{{$errors->first('image')}}</li>
-                         @endif
                         <div class="form-floating">
                             <input name="name" type="text" class="form-control" id="floatingName"
-                                placeholder="Your Name" value="{{ $form1Data['name'] ?? '' }}" readonly>
+                                placeholder="Your Name" value="{{$form1Data['name'] ?? ''}}" readonly>
                             <label for="floatingName">saisir le nom</label>
-                        </div>
-                            @if ($errors->has('name'))
-                                    <li>{{$errors->first('name')}}</li>
+                            </div>
+                            @if ($errors->has('nom'))
+                                    <li>{{$errors->first('nom')}}</li>
                             @endif
+
 
                         <div class="form-floating">
                             <input name="prenom" type="text" class="form-control" id="floatingName"
-                                placeholder="Votre prénom">
+                                placeholder="Your Name">
                             <label for="floatingName">saisir le prenom</label>
                         </div>
                         @if ($errors->has('prenom'))
@@ -160,20 +147,22 @@
                 @endif
                     </div>
 
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <div class="form-floating">
-                            <input name="dateNaiss" type="date" class="form-control" id="floatingEmail"
+                            <input name="daten" type="date" class="form-control" id="floatingEmail"
                                 placeholder="Date de Naissance">
                             <label for="floatingEmail">Date de Naissance</label>
                         </div>
-                        @if ($errors->has('dateNaiss'))
-                        <li>{{$errors->first('dateNaiss')}}</li>
-                         @endif
-                        {{-- <div class="form-floating select">
-                            <input name="genre" type="text" class="form-control" id="floatingEmail"
-                                placeholder="Your Email">
-                            <label for="floatingEmail">Sexe</label>
-                        </div> --}}
+                        @if ($errors->has('daten'))
+                        <li>{{$errors->first('daten')}}</li>
+                            @endif
+
+
+                            {{-- <div class="form-floating select">
+                                <input name="genre" type="text" class="form-control" id="floatingEmail"
+                                    placeholder="Your Email">
+                                <label for="floatingEmail">Sexe</label>
+                            </div> --}}
 
                         <div class="form-floating mb-3">
                             <select class="form-select" id="floatingSelect" aria-label="Floating label select example"
@@ -181,13 +170,68 @@
                                 {{-- <option selected="">Genre</option> --}}
                                 <option value="masculin">Masculin</option>
                                 <option value="feminin">Feminin</option>
+
                             </select>
                             <label for="floatingSelect">Selectionner votre genre</label>
                         </div>
                         @if ($errors->has('genre'))
                         <li>{{$errors->first('genre')}}</li>
                          @endif
-                         <div class="form-floating">
+
+                         <div class="form-floating mb-3">
+                            <select class="form-select" id="floatingSelect" aria-label="Floating label select example"
+                                name="sitmatrimoniale">
+                                {{-- <option selected="">Genre</option> --}}
+                                <option value="celibataire">Celibataire</option>
+                                <option value="marie">Marié</option>
+                                <option value="divorce">Divorce</option>
+                                <option value="marie">Veufe</option>
+
+
+                            </select>
+                            <label for="floatingSelect">Selectionner votre Civilité</label>
+                        </div>
+                        @if ($errors->has('sitmatrimoniale'))
+                        <li>{{$errors->first('sitmatrimoniale')}}</li>
+                         @endif
+
+
+                        <div class="form-floating select">
+                            <input name="profession" type="text" class="form-control" id="floatingEmail"
+                                placeholder="Your Email">
+                            <label for="floatingEmail">Profession</label>
+                        </div>
+                        @if ($errors->has('profession'))
+                        <li>{{$errors->first('profession')}}</li>
+                         @endif
+
+                        <div class="form-floating mb-3">
+                            <select id="selectNationalite" class="form-select" aria-label="Floating label select example" name="nationalite">
+                                {{-- <option selected="">Genre</option> --}}
+
+
+                            </select>
+                            <label for="floatingSelect">Selectionner votre nationnalite</label>
+                        </div>
+                        @if ($errors->has('nationalite'))
+                        <li>{{$errors->first('nationalite')}}</li>
+                         @endif
+
+
+
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="floatingPassword" placeholder="Lieu de Naissance"
+                                name="lieuNaiss">
+                            <label for="floatingPassword">Lieu De Naissance</label>
+                        </div>
+                        @if ($errors->has('lieuNaiss'))
+                        <li>{{$errors->first('lieuNaiss')}}</li>
+                         @endif
+
+                        <div class="form-floating">
+
                             <input type="text" class="form-control" id="floatingPassword" placeholder="Telephone"
                                 name="tel">
                             <label for="floatingPassword">Telephone</label>
@@ -195,14 +239,17 @@
                         @if ($errors->has('tel'))
                         <li>{{$errors->first('tel')}}</li>
                          @endif
-                        <div class="form-floating select">
-                            <input name="profession" type="text" class="form-control" id="floatingEmail"
-                                placeholder="Votre profession">
-                            <label for="floatingEmail">Profession</label>
-                        </div>
-                        @if ($errors->has('profession'))
-                        <li>{{$errors->first('profession')}}</li>
-                         @endif
+                        {{-- <div class="form-floating">
+                            <input type="text" class="form-control" id="floatingPassword"
+                                placeholder="Situation matrimoniale" name="sitmatrimoniale">
+                            <label for="floatingPassword">Situation Matrimoniale</label>
+                        </div> --}}
+
+                        {{-- <div class="form-floating">
+                            <input type="text" class="form-control" id="floatingPassword"
+                                placeholder="Lieu de Naissance" name="lieuNaiss">
+                            <label for="floatingPassword">Lieu de Naissance</label>
+                        </div> --}}
                         <div class="form-floating">
                             <input type="text" class="form-control" id="floatingPassword" placeholder="Adresse"
                                 name="adresse">
@@ -211,59 +258,33 @@
                         @if ($errors->has('adresse'))
                         <li>{{$errors->first('adresse')}}</li>
                          @endif
-                        <div class="form-floating mb-3">
-                            <select id="selectNationalite" class="form-select" aria-label="Floating label select example" name="nationalite">
-                                {{-- <option selected="">Genre</option> --}}
-                            </select>
-                            <label for="floatingSelect">Selectionner votre nationnalite</label>
-                        </div>
-                        @if ($errors->has('nationalite'))
-                        <li>{{$errors->first('nationalite')}}</li>
-                         @endif
-                    </div><br><br>
-                    <div class="col-md-6">
-                        <div class="col-md-6">
-                            <div class="form-floating">
-                                <input type="text" class="form-control" id="floatingPassword" placeholder="Ville"
-                                    name="ville">
-                                <label for="floatingPassword">Ville</label>
-                            </div>
-                            @if ($errors->has('ville'))
-                            <li>{{$errors->first('ville')}}</li>
-                             @endif
+
+
+                    </div>
+
+                    <div class="col-md-12">
                         <div class="form-floating">
-                            <input type="text" class="form-control" id="floatingPassword" placeholder="Lieu de Naissance"
-                                name="lieuNaiss">
-                            <label for="floatingPassword">Lieu de Naissance</label>
+                            <input type="text" class="form-control" id="floatingPassword" placeholder="Ville"
+                                name="ville">
+                            <label for="floatingPassword">Ville</label>
                         </div>
-                        @if ($errors->has('lieuNaiss'))
-                        <li>{{$errors->first('lieuNaiss')}}</li>
-                         @endif
-                        <div class="form-floating">
-                            <input type="text" class="form-control" id="floatingPassword"
-                                placeholder="Situation matrimoniale" name="sitmatrimoniale">
-                            <label for="floatingPassword">Situation Matrimoniale</label>
-                        </div>
-                        @if ($errors->has('sitmatrimoniale'))
-                        <li>{{$errors->first('sitmatrimoniale')}}</li>
+                        @if ($errors->has('ville'))
+                        <li>{{$errors->first('ville')}}</li>
                          @endif
 
-                        {{-- <div class="form-floating">
-                            <input type="text" class="form-control" id="floatingPassword"
-                                placeholder="Lieu de Naissance" name="lieuNaiss">
-                            <label for="floatingPassword">Lieu de Naissance</label>
-                        </div> --}}
-                    </div>
+
                     <div class="col-md-12">
                         <div class="form-floating">
                             <input name="email" type="email" class="form-control" id="floatingEmail"
-                                placeholder="Your Email" value="{{ $form1Data['email'] ?? '' }}" readonly>
+                                placeholder="Your Email" value="{{$form1Data['email'] ?? ''}}" readonly>
                             <label for="floatingEmail">Your Email</label>
                         </div>
                         @if ($errors->has('email'))
                         <li>{{$errors->first('email')}}</li>
                          @endif
                     </div>
+
+
 
 
 
@@ -277,8 +298,8 @@
 
 
                     <div class="text-center">
-                        <button type="submit" class="btn btn-primary">Envoyer</button>
-                        <button type="reset" class="btn btn-secondary">Annuler</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="reset" class="btn btn-secondary">Reset</button>
                     </div>
                 </form><!-- End floating Labels Form -->
 
@@ -304,7 +325,6 @@
 
 
             <script>
-
                 let nationalites=[
                     { code: 'AD', name: 'Andorra' },
   { code: 'AE', name: 'United Arab Emirates' },

@@ -28,30 +28,54 @@ class RegisteredUserController extends Controller
      *
      * @throws \Illuminate\Validation\ValidationException
      */
+    // public function store(Request $request): RedirectResponse
+    // {
+    //     $validatedData= $request->validate([
+    //         'name' => ['required', 'string', 'max:255'],
+    //         'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
+    //         'password' => ['required', 'confirmed', Rules\Password::defaults()],
+    //     ]);
+
+    //     // $user = User::create([
+    //     //     'name' => $request->name,
+    //     //     'email' => $request->email,
+    //     //     'password' => Hash::make($request->password),
+    //     // ]);
+
+
+    //     // $user = User::create([
+    //     //     'name' => $request->name,
+    //     //     'email' => $request->email,
+    //     //     'password' => bcrypt($request->password),
+    //     // ]);
+
+    //     // event(new Registered($user));
+
+    //     // Auth::login($user);
+
+    //     // return redirect(RouteServiceProvider::HOME);
+
+
+    // // Stocker les données validées dans la session
+    //      session(['form1_data' => $validatedData]);
+    //     return redirect()->route('vue.registre.patient');
+
+    // }
+
     public function store(Request $request): RedirectResponse
-    {
-        $validatedData= $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
-        ]);
-
-        // $user = User::create([
-        //     'name' => $request->name,
-        //     'email' => $request->email,
-        //     'password' => Hash::make($request->password),
-        // ]);
-
-        // event(new Registered($user));
-
-        // Auth::login($user);
-
-        // return redirect(RouteServiceProvider::HOME);
-
+{
+    // Valider les données du premier formulaire
+    $validatedData = $request->validate([
+        'name' => ['required', 'string', 'max:255'],
+        'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
+        'password' => ['required', 'confirmed', Rules\Password::defaults()],
+    ]);
 
     // Stocker les données validées dans la session
-         session(['form1_data' => $validatedData]);
-        return redirect()->route('vue.registre.patient');
+    session(['form1_data' => $validatedData]);
 
-    }
+    // Rediriger vers le second formulaire
+    return redirect()->route('vue.registre.patient');
+}
+
 }

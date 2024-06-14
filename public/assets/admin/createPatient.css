@@ -1,0 +1,224 @@
+*,*::after,*::before{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html,body{
+ width: 100%;
+
+}
+body{
+    /* width: 1050px;
+    height: 600px; */
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 1fr 2fr auto;
+    grid-template-areas: "my-header"
+                         "my-main"
+                         "my-footer";
+                         background-color: #222;
+}
+
+.divanim{
+    top: 0;
+    width: 100%;
+    height: 5px;
+
+    background-color: red;
+}
+
+
+header{ grid-area: my-header; }
+
+header .titre{
+    display: flex;
+    border: 1px solid #000;
+    align-items: center;
+    height: 100%;
+
+}
+header .titre.un{
+  height: 40%;
+  background-color: #f2f2f2;
+}
+header .titre.deux{
+    background-color: orange ;
+    text-transform: uppercase;
+    font-family: monospace;
+    height: 60%;
+}
+main{grid-area: my-main; width: 100%; height: 100%;  display: flex;
+    align-items: center;
+    justify-content: center;}
+
+main .cadre{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    /* align-items: center; */
+    width: 95%;
+    /* height: 98%; */
+    background-color:#EEE ;
+    padding: 20px;
+}
+.btn{
+    display: flex;
+    justify-content: space-between;
+    background-color: red;
+
+
+}
+.formulaire-btn{
+    display: flex;
+    margin: 10px;
+    justify-content: space-around;
+    width: 100%;
+    align-items: center;
+}
+.formulaire-btn button{
+padding: 15px;
+width: 25%;
+background-color: orange;
+border: 1px solid #000;
+border-radius: 5px;
+}
+.formulaire-btn button:nth-child(2){
+    background-color: green;
+}
+
+/* main .registre{
+    background-color: #EEE;
+} */
+
+.cadre .registre{
+
+    /* background-color: blue !important; */
+    border: 1px solid #000;
+    width: 99%;
+    height: 98%;
+
+}
+.registre form{
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+
+}
+form .formulaire{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    height: 100%;
+
+}
+
+.formulaire .form1{
+    /* background-color: yellow; */
+    width: 48%;
+    height: 100%;
+
+}
+
+.form1 .numero{
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+
+}
+.form1 .input{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+.form1 .input input{
+    width: 99%;
+    padding: 1em;
+    outline:none;
+    margin-bottom: 10px;
+    border: 1px solid #000;
+    border-radius: 5px;
+}
+.form1 .select{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.form1 .select select{
+    width: 99%;
+    padding: 1em;
+    outline:none;
+    margin-bottom: 10px;
+
+    border: 1px solid #000;
+    border-radius: 5px;
+}
+.form1 .select select option{
+    background-color:#fff;
+    font-size: 15px;
+    padding: 1em;
+    margin: 10px;
+    color: #000;
+}
+
+.formulaire .form2{
+    /* background-color: red !important; */
+    width: 48%;
+    height: 100%;
+}
+
+
+.form2 .select{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 40px;
+}
+.form2 .select select{
+    width: 99%;
+    padding: 1em;
+    outline:none;
+    margin-bottom: 10px;
+    border: 1px solid #000;
+    border-radius: 5px;
+
+}
+.form2 .select select option{
+    background-color:#fff;
+    font-size: 15px;
+    padding: 1em;
+    margin: 10px;
+    color: #000;
+}
+
+.form2 .input{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 40px;
+}
+.form2 .input input{
+    width: 99%;
+    padding: 1em;
+    outline:none;
+    margin-bottom: 10px;
+    border: 1px solid #000;
+    border-radius: 5px;
+}
+.form2 .textarea{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+
+}
+.form2 .textarea textarea{
+    width: 99%;
+    height: 70px;
+    margin: 0 auto;
+    outline: none;
+}
+
+
+
+footer{grid-area: my-footer; background-color: blue;}

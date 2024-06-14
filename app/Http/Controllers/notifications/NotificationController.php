@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\notifications;
 
+use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Notifications\PatientNotification;
 use Illuminate\Http\Request;

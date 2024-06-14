@@ -46,8 +46,6 @@ use App\Http\Controllers\PaiementController;
 use App\Http\Controllers\ExamenController;
 
 
-
-
 Route::post('/examens', [ExamenController::class, 'storeexamen'])->name('examens.storeexamen');
 Route::get('/paiements/formpaye', [PaiementController::class, 'formpaye'])->name('paiements.formpaye');
 Route::post('/paiements', [PaiementController::class, 'paye'])->name('paiements.paye');
@@ -82,6 +80,7 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/praticien/horaires/{id}', [HoraireController::class, 'destroy'])->name('horaires.destroy');
 });
 
+
 Route::middleware('auth')->group(function () {
     Route::get('/patient', [ViewController::class, 'showPatientView'])->name('patient.view');
     Route::post('/rendezvous/request/{praticien}', [RendezvoussController::class, 'requestAppointment'])->name('rendezvous.request');
@@ -89,7 +88,7 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware(['auth', 'roles:user'])->group(function () {
     //Route::get('/patient/{praticien_id}/horaires', [RendezvoussController::class, 'availableHoraires'])->name('patient.horaires');
-    //Route::get('/patient/horaires', [RendezvoussController::class, 'availableHoraires'])->name('patient.horaires');
+    //Route::get('/patient/oraires', [RendezvoussController::class, 'availableHoraires'])->name('patient.horaires');
     //Route::get('/rendezvous/request/{horaireId}', [RendezvoussController::class, 'requestAppointment'])->name('rendezvous.request');
     Route::get('/patient/{praticien_id}/horaires', [RendezvoussController::class, 'availableHoraires'])->name('patient.horaires');
     Route::post('/patient/horaires/{horaireId}/request', [RendezvoussController::class, 'requestAppointment'])->name('patient.requestAppointment');
@@ -100,6 +99,7 @@ Route::middleware(['auth', 'roles:praticien'])->group(function () {
     Route::post('/rendezvous/confirm/{id}', [RendezvoussController::class, 'confirmAppointment'])->name('rendezvous.confirm');
 });
 
+
 // Routes pour les praticiens
 Route::middleware('auth')->group(function () {
     Route::get('/praticien', [ViewController::class, 'showPraticienView'])->name('praticien.view');
@@ -109,7 +109,7 @@ Route::middleware('auth')->group(function () {
 });
 Route::get('patient/dashboard', function(){
     return view('patient.frontad.dashboard');
-});
+})->name('patient.dashboard');
 Route::get('/notification-form', function () {
     return view('notification_form');
 })->name('notification.form');
@@ -124,12 +124,10 @@ Route::get('/user/invoice/{invoice}', function (Request $request, string $invoic
 Route::middleware(['auth', 'roles:admin'])->group(function () {
     Route::get('/admin/users', [AdminController::class, 'listUsers'])->name('admin.users');
     Route::post('/admin/users/assign-role', [AdminController::class, 'assignRole'])->name('admin.users.assignRole');
-
 });
 
 Route::get("/showpatient/{id}/edit", [ProgrammerRdvController::class, 'editPatient']);
 //Route::get('/update-service/{id}', [AdminController::class, 'UpdateService'])->name('update-service');
-
 
 Route::get('/', [FrontendController::class, 'index']);
 Route::get('/contact', [FrontendController::class, 'contact']);
@@ -150,7 +148,6 @@ Route::middleware('auth')->group(function () {
     Route::post('/update/traitement',[AdminController::class, 'update_services_traitement']);
     Route::get('/updateAssurance-assurances/{id}',[AdminController::class, 'updateAssurance_assurances']);
     Route::post('/updateAssurance/traitement',[AdminController::class, 'updateAssurance_assurances_traitement']);
-
 });
 
 
@@ -282,12 +279,8 @@ Route::get('/succes',function(){
     return view('pdf.personne.confirmation');
 })->name('message.success');
 
-// Gestion des images
 
-Route::get('upload', function () {
-    return view('pdf.image.upload');
-});
-
-Route::post('upload', [ImageController::class, 'upload'])->name('image.upload');
 
 require __DIR__.'/notifications/notificationWeb.php';
+require __DIR__.'/images/imageWeb.php';
+require __DIR__.'/admin/adminweb.php';

@@ -54,6 +54,10 @@ class User extends Authenticatable
         'status',
     ];
 
+    public function getUserMeetingInfo(){
+        return $this->hasOne(UserMeeting::class,'user_id','id');
+    }
+
     public function isAdmin()
     {
         return $this->admin;

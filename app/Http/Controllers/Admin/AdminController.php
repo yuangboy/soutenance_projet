@@ -18,10 +18,55 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\Session;
 
 
 class AdminController extends Controller
 {
+
+    //********************* creation patient */
+    // & praticen attribution role
+
+    public function vueCreateRole()
+    {
+        return view('admin.role.role');
+    }
+
+    public function storeRole(Request $request)
+    {
+
+        do {
+            $p=random_int(1000000,9999999);
+            $mat='PA2024'.$p;
+            $verifMatricule=Patient::where('matricule',$mat)->first();
+        } while ($verifMatricule);
+
+           $pass="EHEHDJD";
+        // Valider et stocker les informations de base de l'utilisateur en session
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email',
+            'status' => 'required|string',
+            'role' => 'required|string|in:user,praticien',
+            'password'=>'required'
+        ]);
+
+
+
+        Session::put('user_data', $request->only('name', 'email', 'status', 'role','password'));
+
+        // Rediriger vers le formulaire approprié en fonction du rôle
+        if ($request->role == 'user') {
+            return redirect()->route('create.patient');
+        } elseif ($request->role == 'praticien') {
+            return redirect()->route('store.praticien');
+        }
+
+        return redirect()->route('home')->with('error', 'Rôle invalide.');
+    }
+
+//********************* Fin patient */
+    // fin creation patient & praticen attribution role
 
     /*public function showPatient(){
         return view('frenteprati.index');
