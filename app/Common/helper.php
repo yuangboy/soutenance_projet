@@ -18,7 +18,7 @@ $base64credentials=base64_encode($credentials);
 
 $arr_header='Authorization: Basic '. $base64credentials;
 
-// $curl1=curl_init();
+$curl1=curl_init();
 
 $curl1=curl_init();
 

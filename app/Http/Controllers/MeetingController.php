@@ -30,11 +30,29 @@ class MeetingController extends Controller
         $meeting = Auth::user()->getUserMeetingInfo()->first();
 
         // Si aucune réunion n'existe pour cet utilisateur, en créer une nouvelle
-        if (is_null($meeting)) {
+        // if (is_null($meeting)) {
+        //     $name = 'agora' . rand(1111, 9999);
+        //     $meetingData = createAgoraProject($name);
+
+        //     if (isset($meetingData->project->id)) {
+        //         $meeting = new UserMeeting();
+        //         $meeting->user_id = Auth::user()->id;
+        //         $meeting->app_id = $meetingData->project->vendor_key;
+        //         $meeting->appCertificate = $meetingData->project->sign_key;
+        //         $meeting->channel = $meetingData->project->name;
+        //         $meeting->uid = rand(11111, 99999);
+        //         $meeting->save();
+        //     } else {
+        //         echo "Project not created";
+        //         return;
+        //     }
+        // }
+
+        if(!isset($meeting->id)){
             $name = 'agora' . rand(1111, 9999);
             $meetingData = createAgoraProject($name);
 
-            if (isset($meetingData->project->id)) {
+            if(isset( $meetingData->project->id)){
                 $meeting = new UserMeeting();
                 $meeting->user_id = Auth::user()->id;
                 $meeting->app_id = $meetingData->project->vendor_key;
@@ -42,11 +60,15 @@ class MeetingController extends Controller
                 $meeting->channel = $meetingData->project->name;
                 $meeting->uid = rand(11111, 99999);
                 $meeting->save();
-            } else {
-                echo "Project not created";
-                return;
+            }else{
+                echo 'Project not created';
             }
         }
+        $meeting=Auth::user()->getUserMeetingInfo()->first();
+        $token=createToken($meeting->app_id,$meeting->appCertificate,$meeting->channel);
+        $meeting->token=$token;
+        $meeting->url=generateRandomString();
+        $meeting->save();
 
         // Récupérer les informations de réunion mises à jour
         $meeting = Auth::user()->getUserMeetingInfo()->first();
@@ -54,12 +76,12 @@ class MeetingController extends Controller
         $meeting->token = $token;
         $meeting->url = generateRandomString();
         $meeting->save();
-        // prx($token);
+        prx($token);
 
-        if(Auth::User()->id==$meeting->user_id){
-            Session::put('meeting',$meeting->url);
-        }
-        return redirect('joinMeeting/'.$meeting->url);
+        // if(Auth::User()->id==$meeting->user_id){
+        //     Session::put('meeting',$meeting->url);
+        // }
+        // return redirect('joinMeeting/'.$meeting->url);
     }
 
     public function joinMeeting($url=''){

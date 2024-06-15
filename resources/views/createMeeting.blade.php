@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.js">
 
     <style>
-        
+
 
         #join-btns{
             position: absolute;
@@ -85,6 +85,15 @@
             height:90vh;
             width: 1400px;
             margin: 0 auto;
+         }
+
+
+         @media screen and (max-width: 1400px) {
+            #video-streams{
+                display: grid;
+                grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+                width: 95px;
+             }
          }
 
 
