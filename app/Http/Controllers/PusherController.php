@@ -44,4 +44,12 @@ class PusherController extends Controller
 
         return view('pusher.receive', ['message' => $request->get('message')]);
     }
+
+
+    // information pusher 2
+    
+
+
+
+
 }
