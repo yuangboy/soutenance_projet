@@ -14,6 +14,7 @@ use App\Http\Controllers\ChartController;
 use App\Http\Controllers\OrdonnanceController;
 use App\Http\Controllers\PDFController;
 use App\Http\Controllers\images\ImageController;
+use App\Http\Controllers\patient\PatientController;
 //use Illuminate\Support\Facades\Route;
 //use App\Http\Controllers\ProfileController;
 //use App\Http\Controllers\FrontendController;
@@ -267,7 +268,11 @@ Route::prefix('patient')->group(function () {
     Route::get("/gg", function () {
         echo "Hello";
     });
+    Route::get('/profile',function(){
+        return view('patient.profile.profile');
+    });
 });
+
 
 Route::get("/rdv", [ProgrammerRdvController::class, 'ProgrammeRdv'])->name('patient.rdvProgramme');
 Route::get("/aa", [ProgrammerRdvController::class, 'AA'])->name('patient.rdv');

@@ -7,9 +7,78 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Image;
 use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Storage;
+use App\Models\Patient;
+use App\Models\User;
 
 class ImageController extends Controller
 {
+
+// Enregistrement de l'image debut
+
+public function showForm()
+{
+    return view('images.test.upload');
+}
+
+
+//
+
+
+
+public function Postupload(Request $request)
+{
+    $request->validate([
+        'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+    ]);
+
+   
+
+    $path = $request->file('image')->storeAs('temp_images');
+
+    if ($path) {
+        session()->flash('success', 'Image uploaded successfully!');
+        session()->flash('imagePath', $path);
+    } else {
+        session()->flash('error', 'Image upload failed!');
+    }
+
+    return redirect()->route('image.form');
+}
+
+
+public function confirm(Request $request)
+{
+    $imagePath = $request->input('imagePath');
+    $finalPath = 'images/' . basename($imagePath);
+
+    // Récupérer l'enregistrement de la base de données à mettre à jour
+    $record = Patient::find(109); // Changez l'ID pour celui de votre enregistrement cible
+
+    // Supprimer l'ancienne image si elle existe
+    if ($record->image && Storage::exists($record->image)) {
+        Storage::delete($record->image);
+    }
+
+    // Déplacer l'image à son emplacement final
+    Storage::move($imagePath, $finalPath);
+
+    // Mettre à jour l'enregistrement avec le nouveau chemin de l'image
+    $record->image = $finalPath;
+    $record->save();
+
+    return redirect()->route('image.form')->with('message', 'Image téléchargée avec succès!');
+}
+
+
+
+// fin enregristrement de l'image
+
+
+
+
+
+
 
   // fiche patient
 

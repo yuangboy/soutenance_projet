@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\rendezvous;
 
+use App\Notifications\fichePatientNotification;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\Services;
@@ -13,11 +14,14 @@ use App\Models\RendezVous;
 use App\Models\Image;
 use Illuminate\Http\Request;
 use Dompdf\Dompdf;
+
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Notification;
+use Illuminate\Support\Facades\Mail;
 
 class ProgrammerRdvController extends Controller
 {
@@ -243,11 +247,31 @@ $imageVue = '<img src="data:image/jpeg;base64,' . $imageSearch . '" alt="Image">
     $domPdf->render();
 
 
+
          // Génération du PDF
           $output = $domPdf->output();
 
-          Session::put('mon_dompdf',$request->only('patient','output'));
-    $name=$user->name;
+
+          // Générer le PDF et le stocker dans un fichier
+          $output = $domPdf->output();
+         $filePath = storage_path('app/fichierPdf/' . $patient->id . '.pdf');
+         file_put_contents($filePath, $output);
+
+         $data = [
+            'filePath' => $filePath,
+            'matricule' => $patient->matricule,
+        ];
+        
+
+
+
+         Notification::route('mail', 'albinmpobo@gmail.com')->notify(new fichePatientNotification($patient,$data));
+
+
+
+
+    //       Session::put('mon_dompdf',$request->only('patient','output'));
+    // $name=$user->name;
 
     // Ajouter une notification de session après la génération du PDF
       session()->flash('success', 'PDF généré avec succès.');

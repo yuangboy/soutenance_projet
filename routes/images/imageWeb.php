@@ -16,6 +16,14 @@ use App\Http\Controllers\PDFController;
 use App\Http\Controllers\images\ImageController;
 use App\Http\Controllers\MeetingController;
 
+
+// Envoi de l'image
+
+Route::get('my-upload', [ImageController::class, 'showForm'])->name('image.form');
+Route::post('my-upload', [ImageController::class, 'Postupload'])->name('image.upload');
+Route::post('confirm', [ImageController::class, 'confirm'])->name('image.confirm');
+
+
 // telechargement fiche patient
 
 

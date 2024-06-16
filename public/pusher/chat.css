@@ -1,0 +1,107 @@
+/* Reset de base */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f0f0f0;
+    margin: 20px;
+}
+
+.chat {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.top {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.top img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.top p {
+    font-weight: bold;
+    margin: 0;
+}
+
+.top small {
+    color: #4CAF50;
+    margin-left: auto;
+}
+
+.messages {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.messages .left {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+
+.messages .left img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.messages .left p {
+    background-color: #f1f0f0;
+    padding: 10px;
+    border-radius: 8px;
+    max-width: 70%;
+}
+
+.bottom {
+    padding: 10px;
+    border-top: 1px solid #ddd;
+    background-color: #f9f9f9;
+}
+
+.bottom form {
+    display: flex;
+}
+
+.bottom input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px 0 0 4px;
+    font-size: 14px;
+}
+
+.bottom button[type="submit"] {
+    padding: 10px 15px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* Media queries pour la responsivité */
+
+@media (max-width: 768px) {
+    .chat {
+        max-width: 100%;
+    }
+}

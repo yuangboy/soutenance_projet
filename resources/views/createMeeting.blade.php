@@ -115,13 +115,14 @@
 
 
 
+
 </body>
 
 <script src="https:\\cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js" crossorigin="anonymous"></script>
 <script>
     function joinUserMeeting() {
         var link = $('#linkUrl').val();
-        if (link.trim() === '' || link.length < 1) {
+        if (link.trim() ==   '' || link.length < 1) {
             alert('Please enter the link');
             return;
         } else {

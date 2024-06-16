@@ -70,13 +70,20 @@ class MeetingController extends Controller
         $meeting->url=generateRandomString();
         $meeting->save();
 
+        if(Auth::User()->id==$meeting->user_id()){
+            Session::put('meeting',$meeting->url);
+        }
+        return redirect('joinMeeting/'.$meeting->url);
+
+
+
         // Récupérer les informations de réunion mises à jour
-        $meeting = Auth::user()->getUserMeetingInfo()->first();
-        $token = createToken($meeting->app_id, $meeting->appCertificate, $meeting->channel);
-        $meeting->token = $token;
-        $meeting->url = generateRandomString();
-        $meeting->save();
-        prx($token);
+        // $meeting = Auth::user()->getUserMeetingInfo()->first();
+        // $token = createToken($meeting->app_id, $meeting->appCertificate, $meeting->channel);
+        // $meeting->token = $token;
+        // $meeting->url = generateRandomString();
+        // $meeting->save();
+        // prx($token);
 
         // if(Auth::User()->id==$meeting->user_id){
         //     Session::put('meeting',$meeting->url);
@@ -108,9 +115,11 @@ class MeetingController extends Controller
                 }else{
                     $this->createEntry($meeting->user_id, Auth::user()->id, $meeting->url);
                 }
+
+
             }
-            // prx(get_defined_vars());
-            return view('joinUser',get_defined_vars());
+            prx(get_defined_vars());
+                return view('joinUser',get_defined_vars());
 
          }else{
             // meeting not exist

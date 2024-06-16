@@ -20,7 +20,6 @@ return new class extends Migration
             $table->string('channel')->nullable();
             $table->string('url')->nullable();
             $table->string('uid')->nullable();
-
             $table->timestamps();
         });
     }
