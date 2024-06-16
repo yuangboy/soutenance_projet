@@ -51,6 +51,7 @@ class ExamenController extends Controller
         public function printexm($id)
         {
             $examen = Examen::findOrFail($id);
+            
             // Logique pour générer un fichier PDF ou imprimer l'examen
         }
 
@@ -71,6 +72,6 @@ class ExamenController extends Controller
 
         // Affichez les examens dans la vue
         return view('examimprime', compact('examens'));
-    
+
         }
     }

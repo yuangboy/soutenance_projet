@@ -13,8 +13,8 @@
 									<h1>Prendre <span>Des rendez vous en ligne</span> Via votre mobile <span>!</span></h1>
 
 									<div class="button">
-										<a href="/rdv" class="btn">Obtenir un rendez-vous</a>
-										<a href="#" class="btn primary">En savoir plus</a>
+										<a href="/admin/services" class="btn">Obtenir un rendez-vous</a>
+
 									</div>
 								</div>
 							</div>
@@ -34,8 +34,8 @@
 									<h1>Acceder en toute sécurité <span>à votre dossier médical</span> Via votre mobile <span>!</span></h1>
 
 									<div class="button">
-										<a href="/rdv" class="btn">Obtenir un rendez-vous</a>
-										<a href="#" class="btn primary">A propos</a>
+										<a href="/admin/services" class="btn">Obtenir un rendez-vous</a>
+
 									</div>
 								</div>
 							</div>
@@ -52,7 +52,7 @@
 									<h1>Contacter <span>Son Pratcien</span> Et se faire consulter partout <span>!</span></h1>
 
 									<div class="button">
-										<a href="/rdv" class="btn">Obtenir un Rendez-vous</a>
+										<a href="/admin/services" class="btn">Obtenir un Rendez-vous</a>
 										<a href="#" class="btn primary">Conatcter maintenant</a>
 									</div>
 								</div>
@@ -77,12 +77,7 @@
 									<div class="icon">
 										<i class="fa fa-ambulance"></i>
 									</div>
-									<div class="single-content">
-										<span>Lorem Amet</span>
-										<h4>Emergency Cases</h4>
-										<p>Lorem ipsum sit amet consectetur adipiscing elit. Vivamus et erat in lacus convallis sodales.</p>
-										<a href="#">LEARN MORE<i class="fa fa-long-arrow-right"></i></a>
-									</div>
+
 								</div>
 							</div>
 						</div>
@@ -95,9 +90,9 @@
 									</div>
 									<div class="single-content">
 										<span></span>
-										<h4>Emplois du temps des praticiens</h4>
+										<h4>Horaires de consultations des praticiens</h4>
 										<p>En selectionnant un service et le praticien de votre choix, acceder à son emplois du temps.</p>
-										<a href="#">En savoir plus<i class="fa fa-long-arrow-right"></i></a>
+										<a href="/admin/services">En savoir plus<i class="fa fa-long-arrow-right"></i></a>
 									</div>
 								</div>
 							</div>
@@ -117,7 +112,7 @@
 											<li class="day">Vous pouvez à tout moment être informé</span></li>
 											<li class="day">de la disponibilité de vos praticiens de santé </span></li>
 										</ul>
-										<a href="#">En savoir plus<i class="fa fa-long-arrow-right"></i></a>
+
 									</div>
 								</div>
 							</div>
@@ -254,8 +249,8 @@
 						<!-- Start Single Service -->
 						<div class="single-service">
 							<i class="icofont icofont-prescription"></i>
-							<h4><a href="service-details.html">Traitement Général</a></h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>
+							<h4><a href="/admin/services">Traitement Général</a></h4>
+
 						</div>
 						<!-- End Single Service -->
 					</div>
@@ -263,8 +258,8 @@
 						<!-- Start Single Service -->
 						<div class="single-service">
 							<i class="icofont icofont-tooth"></i>
-							<h4><a href="service-details.html">Dentologie</a></h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>
+							<h4><a href="/admin/services">Dentologie</a></h4>
+
 						</div>
 						<!-- End Single Service -->
 					</div>
@@ -272,8 +267,8 @@
 						<!-- Start Single Service -->
 						<div class="single-service">
 							<i class="icofont icofont-heart-alt"></i>
-							<h4><a href="service-details.html">Service de Cardiologie</a></h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>
+							<h4><a href="/admin/services">Service de Cardiologie</a></h4>
+
 						</div>
 						<!-- End Single Service -->
 					</div>
@@ -281,8 +276,8 @@
 						<!-- Start Single Service -->
 						<div class="single-service">
 							<i class="icofont icofont-listening"></i>
-							<h4><a href="service-details.html">ORL service</a></h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>
+							<h4><a href="/admin/services">ORL service</a></h4>
+
 						</div>
 						<!-- End Single Service -->
 					</div>
@@ -290,8 +285,8 @@
 						<!-- Start Single Service -->
 						<div class="single-service">
 							<i class="icofont icofont-eye-alt"></i>
-							<h4><a href="service-details.html">Trouble visuel</a></h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>
+							<h4><a href="/admin/services">Trouble visuel</a></h4>
+
 						</div>
 						<!-- End Single Service -->
 					</div>
@@ -299,8 +294,8 @@
 						<!-- Start Single Service -->
 						<div class="single-service">
 							<i class="icofont icofont-blood"></i>
-							<h4><a href="service-details.html">Transfusion de sang</a></h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>
+							<h4><a href="/admin/services">Transfusion de sang</a></h4>
+
 						</div>
 						<!-- End Single Service -->
 					</div>
@@ -338,7 +333,7 @@
 							<!-- Table List -->
 
 							<div class="table-bottom">
-								<a class="btn" href="#">Obtenir un rebdez-vous</a>
+								<a class="btn" href="/admin/services">Obtenir un rebdez-vous</a>
 							</div>
 							<!-- Table Bottom -->
 						</div>
@@ -357,7 +352,7 @@
 							<!-- Table List -->
 
 							<div class="table-bottom">
-								<a class="btn" href="#">Obtenir un rendez vous</a>
+								<a class="btn" href="/admin/services">Obtenir un rendez vous</a>
 							</div>
 							<!-- Table Bottom -->
 						</div>
@@ -377,7 +372,7 @@
 							<!-- Table List -->
 							<
 							<div class="table-bottom">
-								<a class="btn" href="#">Obtenir un rendez vous</a>
+								<a class="btn" href="/admin/services">Obtenir un rendez vous</a>
 							</div>
 							<!-- Table Bottom -->
 						</div>
@@ -405,25 +400,14 @@
 				<div class="row">
 					<div class="col-lg-4 col-md-6 col-12">
 						<!-- Single Blog -->
-						<div class="single-news">
-							<div class="news-head">
-								<img src="{{ asset('frontend/assets/img/blog1.jpg')}}" alt="#">
-							</div>
-							<div class="news-body">
-								<div class="news-content">
-									<div class="date">22 Aug, 2020</div>
-									<h2><a href="blog-single.html">We have annnocuced our new product.</a></h2>
-									<p class="text">Lorem ipsum dolor a sit ameti, consectetur adipisicing elit, sed do eiusmod tempor incididunt sed do incididunt sed.</p>
-								</div>
-							</div>
-						</div>
+
 						<!-- End Single Blog -->
 					</div>
 					<div class="col-lg-4 col-md-6 col-12">
 						<!-- Single Blog -->
 						<div class="single-news">
 							<div class="news-head">
-								<img src="{{ asset('frontend/assets/img/blog2.jpg')}}" alt="#">
+								<img src="{{ asset('frontend/assets/img/blog3.jpg')}}" alt="#">
 							</div>
 
 						</div>
@@ -433,13 +417,11 @@
 						<!-- Single Blog -->
 						<div class="single-news">
 							<div class="news-head">
-								<img src="{{ asset('frontend/assets/img/blog3.jpg')}}" alt="#">
+
 							</div>
 							<div class="news-body">
 								<div class="news-content">
-									<div class="date">05 Jan, 2020</div>
-									<h2><a href="blog-single.html">We provide highly business soliutions.</a></h2>
-									<p class="text">Lorem ipsum dolor a sit ameti, consectetur adipisicing elit, sed do eiusmod tempor incididunt sed do incididunt sed.</p>
+
 								</div>
 							</div>
 						</div>
@@ -496,7 +478,7 @@
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="section-title">
-							<h2>Nous sommes toujours prêt à vous aidre</h2>
+							<h2>Nous sommes toujours prêt à vous aider pour vos soucis sanitaire!!!!</h2>
 							<img src="{{ asset('frontend/assets/img/section-img.png')}}" alt="#">
 
 						</div>
@@ -514,20 +496,14 @@
 					<div class="col-lg-6  col-12">
 						<!-- Start Newsletter Form -->
 						<div class="subscribe-text ">
-							<h6>Sign up for newsletter</h6>
-							<p class="">Cu qui soleat partiendo urbanitas. Eum aperiri indoctum eu,<br> homero alterum.</p>
+							<h6></h6>
+							<p class=""><br> </p>
 						</div>
 						<!-- End Newsletter Form -->
 					</div>
 					<div class="col-lg-6  col-12">
 						<!-- Start Newsletter Form -->
-						<div class="subscribe-form ">
-							<form action="mail/mail.php" method="get" target="_blank" class="newsletter-inner">
-								<input name="EMAIL" placeholder="Your email address" class="common-input" onfocus="this.placeholder = ''"
-									onblur="this.placeholder = 'Your email address'" required="" type="email">
-								<button class="btn">s'inscrire</button>
-							</form>
-						</div>
+
 						<!-- End Newsletter Form -->
 					</div>
 				</div>

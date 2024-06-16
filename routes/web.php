@@ -46,7 +46,37 @@ use App\Http\Controllers\PaiementController;
 use App\Http\Controllers\ExamenController;
 
 
+// routes/web.php
 
+use App\Http\Controllers\VideoController;
+
+/*Route::get('/record-video', [VideoController::class, 'index'])->middleware('auth');
+Route::post('/upload-video', [VideoController::class, 'upload'])->middleware('auth');*/
+
+// routes/web.php
+
+// routes/web.php
+
+
+
+/*Route::get('/record-video', [VideoController::class, 'index'])->middleware('auth');
+Route::post('/upload-video', [VideoController::class, 'upload'])->middleware('auth');
+Route::get('/videos', [VideoController::class, 'list'])->middleware('auth');
+Route::get('/videos/{id}', [VideoController::class, 'show'])->middleware('auth');*/
+
+use App\Http\Controllers\ContactController;
+
+Route::get('/contact', [ContactController::class, 'showForm'])->name('contact.form');
+Route::post('/contact', [ContactController::class, 'submitForm'])->name('contact.submit');
+
+Route::get('/record-video', function () {
+    return view('record-video');
+});
+Route::get('/videos', [VideoController::class, 'index'])->name('videos.index');
+Route::get('/videos/{id}', [VideoController::class, 'show'])->name('videos.show');
+Route::post('/upload-video', [VideoController::class, 'upload'])->name('videos.upload');
+
+Route::post('/upload-video', [VideoController::class, 'upload']);
 
 Route::post('/examens', [ExamenController::class, 'storeexamen'])->name('examens.storeexamen');
 Route::get('/paiements/formpaye', [PaiementController::class, 'formpaye'])->name('paiements.formpaye');
@@ -163,8 +193,9 @@ Route::get('/users',[AdminController::class, 'users']);
     //Route::post('/update/traitement',[AdminController::class, 'update_services_traitement']);
 
     Route::middleware(['auth'])->group(function () {
-    Route::get('/praticien/frenteprati/create', [OrdonnanceController::class, 'create'])->name('ordonnances.create');
-     Route::get('ordonnances/{id}', [OrdonnanceController::class, 'show'])->name('ordonnances.show');
+
+
+    Route::get('ordonnances/{id}', [OrdonnanceController::class, 'show'])->name('ordonnances.show');
     Route::post('ordonnances', [OrdonnanceController::class, 'store'])->name('ordonnances.store');
 });
 
@@ -173,8 +204,9 @@ Route::middleware(['auth', 'roles:praticien'])->group(function () {
     Route::get('/tableTime',[AdminController::class, 'empt']);
     Route::get('/createTT', [AdminController::class, 'createTT'])->name('emplt.create');
     Route::post('/admin/store3', [AdminController::class, 'store3'])->name('emplt.store3');
-
-
+Route::get('/praticien/frenteprati/create', [OrdonnanceController::class, 'create'])->name('ordonnances.create');
+    Route::get('/praticien/frenteprati/create/{patientId}', [OrdonnanceController::class, 'create'])->name('ordonnances.create');
+    Route::get('ordonnances/{id}', [OrdonnanceController::class, 'show'])->name('ordonnances.show');
    /* Route::get('/praticien/frenteprati/create', [OrdonnanceController::class, 'create'])->name('ordonnances.create');
     Route::get('ordonnances/{id}', [OrdonnanceController::class, 'show'])->name('ordonnances.show');
     Route::post('ordonnances', [OrdonnanceController::class, 'store'])->name('ordonnances.store');*/
@@ -209,12 +241,21 @@ Route::middleware('auth')->group(function () {
     //Route::get('/ajouterPraticien', [AdminController::class, 'ajouterPraticien']);
     //Route::post('/ajouterPraticien/traitement', [AdminController::class, 'ajouterPraticien_traitement']);
     // Route pour modifier un praticien
+
+    Route::get('/patients/{patient}/edit2', [AdminController::class, 'edit2'])->name('patients.edit2');
+    Route::put('/patients/{patient}', [AdminController::class, 'update2'])->name('patients.update2');
+
     Route::get('/praticiens/{praticien}/edit', [AdminController::class, 'edit1'])->name('praticiens.edit');
     Route::put('/praticiens/{praticien}', [AdminController::class, 'update1'])->name('praticiens.update1');
 
 // Route pour supprimer un praticien
+ Route::delete('/patients/{patient}', [AdminController::class, 'destroy2'])->name('patients.destroy2');
+
+
     Route::delete('/praticiens/{praticien}', [AdminController::class, 'destroy'])->name('praticiens.destroy');
     });
+
+
    /* Route::middleware(['auth', 'roles:admin'])->group(function () {
         Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
         Route::get('/updateUser-user/{id}',[AdminController::class, 'updateUser_user']);

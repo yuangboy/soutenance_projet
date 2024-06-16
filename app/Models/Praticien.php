@@ -45,17 +45,17 @@ class Praticien extends Model
     {
         return $this->user->nom;
     }
-    /*public function patients() {
+    public function patients() {
         return $this->belongsToMany(Patient::class, 'suivre', 'praticiens_id', 'patients_id');
-    }*/
-     public function patients()
+    }
+     /*public function patients()
     {
         return $this->belongsToMany(Patient::class, 'suivre', 'praticiens_id', 'patients_id')->withTimestamps();
-    }
+    }*/
 
     public function rendezvousses()
     {
-        return $this->hasMany(Rendezvouss::class);
+        return $this->hasMany(Rendezvouss::class, 'praticien_id');
     }
 
 

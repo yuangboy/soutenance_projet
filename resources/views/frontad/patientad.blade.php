@@ -5,12 +5,12 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Dashboard - NiceAdmin Bootstrap Template</title>
+  <title>HGD</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="{{ asset('assets/img/favicon.png')}}"  rel="icon">
+  <link href="{{ asset('assets/img/logoSoutenace.png')}}"  rel="icon">
   <link href="{{ asset('assets/img/apple-touch-icon.png')}}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
@@ -347,6 +347,8 @@
                                 <th>Proféssion</th>
                                 <th>Adresse</th>
                                 <th>NIU</th>
+                                <th>Action</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -360,7 +362,18 @@
                                                 <td>{{$patients->tel}}</td>
                                                 <td>{{$patients->profession}}</td>
                                                 <td>{{$patients->adresse}}</td>
-                                                <td>{{$patients->codep}}</td>
+                                                <td>{{$patients->matricule}}</td>
+                                                <td>
+                                                    <a href="{{ route('patients.edit2', $patients->id) }}" class="btn btn-sm btn-warning">Modifier</a>
+                                                    <td>
+                                                    <button type="button" class="btn btn-sm btn-danger" onclick="confirmDelete({{ $patients->id }})">Supprimer</button>
+                                                    <form action="{{ route('patients.destroy2', $patients->id) }}" method="POST" style="display:none;" id="delete-form-{{ $patients->id }}">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                    </form>
+                                                    </td>
+
+                                                </td>
                                             </tr>
                                     @endforeach
                         </tbody>

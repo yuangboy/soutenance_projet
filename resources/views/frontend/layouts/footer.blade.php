@@ -25,16 +25,16 @@
 								<div class="row">
 									<div class="col-lg-6 col-md-6 col-12">
 										<ul>
-											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Accieul</a></li>
+											<li><a href="/"><i class="fa fa-caret-right" aria-hidden="true"></i>Accieul</a></li>
 											<li><a href="/listepraticiensP"><i class="fa fa-caret-right" aria-hidden="true"></i>Praticiens</a></li>
-                                            <li><a href="/listeservicep"><i class="fa fa-caret-right" aria-hidden="true"></i>Services</a></li>
+                                            <li><a href="/admin/services"><i class="fa fa-caret-right" aria-hidden="true"></i>Services</a></li>
 										</ul>
 									</div>
 									<div class="col-lg-6 col-md-6 col-12">
 										<ul>
 
 											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Actualités de l'hopital</a></li>
-											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Contacts</a></li>
+											<li><a href="/contact"><i class="fa fa-caret-right" aria-hidden="true"></i>Contacts</a></li>
 										</ul>
 									</div>
 								</div>
@@ -53,11 +53,7 @@
 							<div class="single-footer">
 								<h2>Laissez nous un mot</h2>
 
-								<form action="mail/mail.php" method="get" target="_blank" class="newsletter-inner">
-									<input name="email" placeholder="Email Address" class="common-input" onfocus="this.placeholder = ''"
-										onblur="this.placeholder = 'Your email address'" required="" type="email">
-									<button class="button"><i class="icofont icofont-paper-plane"></i></button>
-								</form>
+								
 							</div>
 						</div>
 					</div>

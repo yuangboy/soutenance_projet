@@ -11,7 +11,11 @@
         @foreach($conversations as $conversation)
             <li>
                 <a href="{{ route('conversations.show', $conversation->id) }}">
+                    <button id="startBtn">Commencer l'enregistrement</button>
+    <button id="stopBtn" disabled>Arrêter l'enregistrement</button>
                     Conversation with {{ $conversation->patient_id == Auth::id() ? $conversation->praticien->prenom : $conversation->patient->prenom }}
+                    <audio id="audioPlayback" controls></audio>
+                    <script src="{{ asset('js/recorder.js') }}"></script>
                 </a>
             </li>
         @endforeach

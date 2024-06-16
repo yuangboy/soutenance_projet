@@ -2,31 +2,69 @@
 // app/Http/Controllers/AudioMessageController.php
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\AudioMessage;
-use App\Models\Conversation;
-use Illuminate\Support\Facades\Storage;
+use App\Models\Rendezvouss;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class AudioMessageController extends Controller
 {
-    public function store(Request $request, $conversationId)
+    public function index($rendezvousId)
     {
-        $conversation = Conversation::findOrFail($conversationId);
+        $rendezvous = Rendezvouss::findOrFail($rendezvousId);
+        $this->authorize('view', $rendezvous);
 
-        $audioMessage = new AudioMessage;
-        $audioMessage->conversation_id = $conversation->id;
+        $audioMessages = $rendezvousses->audioMessages()->with('sender')->get();
 
-        if ($request->hasFile('audio')) {
-            $audioPath = $request->file('audio')->store('audios', 'public');
-            $audioMessage->audio_path = $audioPath;
+        return view('audio_messages.index', compact('audioMessages', 'rendezvousses'));
+    }
+
+    public function store(Request $request, $rendezvoussesId)
+    {
+        $request->validate([
+            'audio' => 'required|mimes:audio/mpeg,mpga,mp3,wav,aac'
+        ]);
+
+        $rendezvousses = Rendezvouss::findOrFail($rendezvoussesId);
+        $this->authorize('view', $rendezvousses);
+
+        $filePath = $request->file('audio')->store('audio_messages');
+
+        AudioMessage::create([
+            'rendezvous_id' => $rendezvousId,
+            'sender_id' => Auth::id(),
+            'file_path' => $filePath
+        ]);
+
+        return redirect()->back()->with('success', 'Audio message sent successfully.');
+    }
+
+    public function destroy($id)
+    {
+        $audioMessage = AudioMessage::findOrFail($id);
+        $this->authorize('delete', $audioMessage);
+
+        Storage::delete($audioMessage->file_path);
+        $audioMessage->delete();
+
+        return redirect()->back()->with('success', 'Audio message deleted successfully.');
+    }
+
+    public function play($id)
+    {
+        $audioMessage = AudioMessage::findOrFail($id);
+        $this->authorize('view', $audioMessage->rendezvousses);
+
+        $filePath = $audioMessage->file_path;
+        if (!Storage::exists($filePath)) {
+            abort(404);
         }
 
-        $audioMessage->sender_id = Auth::id();
-        $audioMessage->sender_type = get_class(Auth::user());
-        $audioMessage->save();
+        $fileContents = Storage::get($filePath);
+        $mimeType = Storage::mimeType($filePath);
 
-        return redirect()->route('conversations.show', $conversation->id);
+        return response($fileContents, 200)
+            ->header('Content-Type', $mimeType);
     }
 }
-

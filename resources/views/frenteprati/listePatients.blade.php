@@ -187,6 +187,7 @@
                                                 <td>{{ $patient->dateNaiss }}</td>
                                                  <td>
                                                     <a href="{{ route('prescrireExamen', $patient->id) }}" class="btn btn-primary">Prescrire un examen</a>
+                                                    
                                                 </td>
                                             </tr>
 

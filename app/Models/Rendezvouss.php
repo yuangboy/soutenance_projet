@@ -13,7 +13,7 @@ class Rendezvouss extends Model
 
     protected $fillable = ['patient_id', 'praticien_id', 'appointment_time', 'status'];
 
-    public function patient()
+    /*public function patient()
     {
         return $this->belongsTo(Patient::class, 'patient_id');
     }
@@ -21,5 +21,22 @@ class Rendezvouss extends Model
     public function praticien()
     {
         return $this->belongsTo(Praticien::class, 'praticien_id');
+    }*/
+
+
+
+    public function patient()
+    {
+        return $this->belongsTo(User::class, 'patient_id');
+    }
+
+    public function praticien()
+    {
+        return $this->belongsTo(User::class, 'praticien_id');
+    }
+
+    public function audioMessages()
+    {
+        return $this->hasMany(AudioMessage::class);
     }
 }

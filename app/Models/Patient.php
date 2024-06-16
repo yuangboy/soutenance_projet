@@ -74,5 +74,13 @@ class Patient extends Model
     {
         return $this->hasMany(Examen::class,'patients_id');
     }
+    public function ordonnances()
+    {
+        return $this->hasMany(Ordonnance::class,'patient_id');
+    }
+    public function rendezvousses()
+    {
+        return $this->hasMany(Rendezvouss::class, 'patient_id');
+    }
 
 }

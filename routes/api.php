@@ -4,7 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PraticienController;
 use App\Http\Controllers\ServiceController;
-
+use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -22,3 +23,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::resource('praticiens', PraticienController::class);
 Route::resource('service', ServiceController::class);
+
+Route::post('register', [RegisteredUserController::class, 'insert'])
+                ->name('register-api');
+
+Route::post('login', [AuthenticatedSessionController::class, 'login'])
+                ->name('login-api');
+
+Route::get('', [FrontendController::class, 'indexs'])
+    ->name('indexs');

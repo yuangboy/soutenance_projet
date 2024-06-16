@@ -53,6 +53,19 @@ class AdminController extends Controller
 
     return view('frontad.edit', compact('praticiens'));
 }
+public function edit2($id) {
+    $patients = Patient::findOrFail($id); // Récupère le praticien par son ID
+
+    return view('frontad.edit2', compact('patients'));
+}
+
+    public function update2(Request $request, $id)
+    {
+        $patient = Patient::find($id);
+        $patient->update($request->all());
+
+        return redirect('/patientad')->with('status', 'Praticien mis à jour avec succès!!!');
+    }
      public function update1(Request $request, $id)
     {
         $praticien = Praticien::find($id);
@@ -67,6 +80,13 @@ class AdminController extends Controller
         $praticien = Praticien::find($id);
         $praticien->delete();
         return redirect()->route('praticiens.index')->with('status', 'Praticien supprimé avec succès');
+    }
+    public function destroy2($id)
+    {
+        $patient = Patient::find($id);
+        $patient->delete();
+        return redirect('/patientad')->with('status', 'Praticien mis à jour avec succès!!!');
+        #return redirect()->route('patients.index')->with('status', 'Patient supprimé avec succès');
     }
     public function empt(){
     // Accéder à l'ID du praticien lié à l'utilisateur connecté
@@ -367,7 +387,7 @@ public function create()
         $services -> libelle = $request->libelle;
         $services -> description = $request->description;
         $services->update();
-       return redirect('/frontad')->with('status', 'Pupil successfully updated');
+       return redirect('/frontad')->with('status', 'user successfully updated');
 
     }
     public function updateAssurance_assurances($id){

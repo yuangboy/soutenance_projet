@@ -147,14 +147,12 @@
         @csrf
         <div class="row">
             <div class="col-lg-8">
-                <div class="form-group">
-                    <label for="patient_id">M. / Mme (Patient) :</label>
-                    <select name="patient_id" id="patient_id" class="form-control">
-                        @foreach($patients as $patient)
-                            <option value="{{ $patient->id }}">{{ $patient->prenom }}</option>
-                        @endforeach
-                    </select>
-                </div>
+                 <label for="patient_id">Sélectionner un Patient :</label>
+            <select name="patient_id" class="form-control">
+                @foreach($patients as $patient)
+                    <option value="{{ $patient->id }}">{{ $patient->prenom }} {{ $patient->nom }}</option>
+                @endforeach
+            </select>
             </div>
             <div class="col-lg-4"></div>
         </div>
@@ -178,11 +176,11 @@
             <div class="col-lg-8">
                  <div class="form-group">
             <label for="praticien_id">Praticien</label>
-            <select name="praticien_id" id="praticien_id" class="form-control">
-                @foreach($praticiens as $praticien)
-                    <option value="{{ $praticien->id }}">{{ $praticien->prenom }}</option>
-                @endforeach
-            </select>
+            <div class="mb-3">
+
+                <textarea name="praticien_id_display" id="praticien_id" class="form-control">{{ Auth::user()->name }}</textarea>
+
+                </div>
         </div>
             </div>
             <div class="col-lg-4">

@@ -232,7 +232,7 @@
                           <td>{{$praticien->service->libelle}}</td>
 
                           <td class="disponibite">
-                            <a href="{{route('afficher.rdv',$praticien->id)}}">Voir la Disponibilté</a>
+                            <a href="/patient/{praticien_id}/horaires">Voir la Disponibilté</a>
                           </td>
                         </tr>
                       @endforeach

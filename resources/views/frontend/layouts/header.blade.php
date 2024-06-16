@@ -6,9 +6,9 @@
 						<div class="col-lg-6 col-md-5 col-12">
 							<!-- Contact -->
 							<ul class="top-link">
-								<li><a href="#">A propos</a></li>
-								<li><a href="#">Docteurs</a></li>
-								<li><a href="#">Contact</a></li>
+								<li><a href="/">A propos</a></li>
+								<li><a href="/listepraticiensP">Docteurs</a></li>
+								<li><a href="/contact">Contact</a></li>
 							</ul>
 							<!-- End Contact -->
 						</div>

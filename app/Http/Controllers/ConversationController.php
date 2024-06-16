@@ -67,7 +67,7 @@ class ConversationController extends Controller
         $conversation = Conversation::with('audioMessages')->findOrFail($id);
         return view('conversations.show', compact('conversation'));
     }
-   
+
    /* public function show($id)
     {
         $user = Auth::user();

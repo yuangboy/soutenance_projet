@@ -54,4 +54,32 @@ class RegisteredUserController extends Controller
         return redirect()->route('vue.registre.patient');
 
     }
+
+    /**
+     * Handle an incoming registration request.
+     *
+     * @throws \Illuminate\Validation\ValidationException
+     */
+    public function insert(Request $request): RedirectResponse
+    {
+
+
+         $user = User::create([
+             'name' => $request->name,
+             'email' => $request->email,
+            'password' => Hash::make($request->password),
+      ]);
+
+        // event(new Registered($user));
+
+        // Auth::login($user);
+
+        // return redirect(RouteServiceProvider::HOME);
+
+
+    // Stocker les données validées dans la session
+        // session(['form1_data' => $validatedData]);
+        return redirect()->route('vue.registre.patient');
+
+    }
 }

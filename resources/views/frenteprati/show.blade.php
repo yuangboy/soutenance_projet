@@ -20,7 +20,7 @@
         <div class="col-lg-4"><p><strong></strong> </p></div>
     </div><br><br>
     <div class="row">
-        <div class="col-lg-8"><p><strong>M. ou Mme:</strong> {{ $ordonnance->patient->prenom }}</p></div>
+        <div class="col-lg-8"><p><strong>M. ou Mme:</strong> {{ $ordonnance->patient->patient_id }}</p></div>
         <div class="col-lg-4"><h1></h1></div>
     </div><br>
     <div class="row">
@@ -32,7 +32,7 @@
 
 
     <div class="row">
-        <div class="col-lg-8"><p><strong>Praticien:</strong> {{ $ordonnance->praticien->prenom }}</p></div>
+        <div class="col-lg-8"><p><strong>Praticien:</strong> {{ $ordonnance->praticien->praticien_id }}</p></div>
         <div class="col-lg-4"><h1>Tel:</h1></div>
     </div><br>
 

@@ -9,7 +9,7 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="{{ asset('assets/img/favicon.png')}}"  rel="icon">
+  <link href="{{ asset('assets/img/logoSoutenace.png')}}"  rel="icon">
   <link href="{{ asset('assets/img/apple-touch-icon.png')}}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
@@ -133,7 +133,7 @@
 
   <main id="main" class="main">
 
-        <p>VICTORI IS MINE</p>
+
         <div class="container">
             <h1>Prescrire un Examen</h1>
 
@@ -167,6 +167,8 @@
                 </div>
 
                 <button type="submit" class="btn btn-primary">Partager</button>
+                <a href="/examens/{id}/print"class="btn btn-sm btn-warning">Imprimer</a>
+
             </form>
         </div>
   </main>

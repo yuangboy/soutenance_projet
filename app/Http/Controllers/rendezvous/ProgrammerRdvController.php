@@ -431,7 +431,7 @@ class ProgrammerRdvController extends Controller
         // Retrieve all practitioners (or handle as needed if no search term is provided)
         $praticiens = Praticien::all();
     }
-
+    
     return view('patient.frontad.servprati', compact('searchService', 'praticiens'));
 }
 
